@@ -1,5 +1,8 @@
-test-bra:
-    :url: http://alfeu:7005
+colomba-bra:
+    :url: http://colomba.cit:7022/
 
 hml-bra:
     :url: http://painelhml.rede.natura.net
+
+qxx-bra:
+    :url: http://painelqxx.rede.natura.net
