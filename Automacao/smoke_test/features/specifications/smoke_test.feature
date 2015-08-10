@@ -8,7 +8,7 @@ Cenario: Validar todas as páginas com table
 	Quando eu informar no campo "uEmail" com ""
 	E eu informar no campo "uPassword" com ""
 	E clicar no botão "okButton"
-	Então deveria visualizar "MEU PAINEL" em Home do painel e capturar screenshot
+	Então deveria visualizar "MEU PAINEL" na Home e capturar screenshot
 	E ao acessar a página deveria visualizar o label e capturar screenshot
     | page | result | 
     | meus dados | SEUS DADOS |
