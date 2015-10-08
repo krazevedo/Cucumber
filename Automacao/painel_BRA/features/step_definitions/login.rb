@@ -2,13 +2,10 @@
 #!/usr/bin/env ruby
 
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
+require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "table"))
 
-Dado(/^que (?:|eu) acesse (.+)$/) do |page_name|
+Dado(/^que (?:|eu) acesse o (.+)$/) do |page_name|
   visit path_to(page_name)
-end
-
-Então(/^deveria visualizar mensagem de erro$/) do
-  expect(page).to have_content 'Login ou senha inválidos.'
 end
 
 Quando(/^eu informar no campo "([^"]*)" com "([^"]*)"$/) do |field, value|
@@ -23,10 +20,17 @@ Então(/^deveria visualizar "([^"]*)" em Home do painel$/) do |value|
   expect(page).to have_content(value)
 end
 
-Então(/^deveria visualizar mensagem de erro "([^"]*)"$/) do |value|
-  expect(page).to have_content(value)
-end
-
 E(/^capturar screenshot$/) do
   Capybara::Screenshot.screenshot_and_save_page
+end
+
+Quando(/^eu informar login e senha inválidos apresentará mensagem de erro$/) do |table|
+   data =  retorna_tabela_hash(table)
+    count = data['login'].size.to_i
+    count.times do | vnum |
+       fill_in("uEmail", :with => data['login'][vnum].to_s)
+       fill_in("uPassword", :with => data['password'][vnum].to_s)
+       click_button("okButton")
+       expect(page).to have_content(data['result'][vnum].to_s)
+  end
 end

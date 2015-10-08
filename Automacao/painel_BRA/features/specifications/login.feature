@@ -4,25 +4,17 @@ Funcionalidade: Login no Painel BRA
 
 Cenario: Validar login valido
 
-	Dado que eu acesse o painel brasil em hml
-	Quando eu informar no campo "uEmail" com ""
-	E eu informar no campo "uPassword" com ""
+	Dado que eu acesse o painel
+	Quando eu informar no campo "uEmail" com "moginatura@gmail.com"
+	E eu informar no campo "uPassword" com "1a2a3a"
 	E clicar no botão "okButton"
 	Então deveria visualizar "MEU PAINEL" em Home do painel
 	E capturar screenshot
 
-Cenario: Validar login invalido
+Cenario: Validar login e/ou senha invalidos
 
-	Dado que eu acesse o painel brasil em hml
-	Quando eu informar no campo "uEmail" com ""
-	E eu informar no campo "uPassword" com ""
-	E clicar no botão "okButton"
-	Então deveria visualizar mensagem de erro "Login ou senha inválidos."
-
-Cenario: Validar senha invalida
-
-	Dado que eu acesse o painel brasil em hml
-	Quando eu informar no campo "uEmail" com ""
-	E eu informar no campo "uPassword" com ""
-	E clicar no botão "okButton"
-	Então deveria visualizar mensagem de erro "Login ou senha inválidos."
+	Dado que eu acesse o painel
+	Quando eu informar login e senha inválidos apresentará mensagem de erro
+	| login | password| result |
+	| mogi@gmail.com | 1a2a3a | Login ou senha inválidos. |
+	| moginatura@gmail.com | 123456 | Login ou senha inválidos. |
