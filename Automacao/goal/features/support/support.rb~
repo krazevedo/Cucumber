@@ -1,0 +1,108 @@
+module Support
+
+	def realizar_login
+		fill_in("txt_login", :with => "kaior")
+  		fill_in("txt_pass", :with => "S0phia1111")
+  		click_button("bt_login")
+	end
+
+	def selecionar_customer_e_project(customer, project)
+		find("div#ctl00_customerMenuContainer").find("button[class^='multiselect']").click
+		choose(customer)
+		sleep(10)
+		if has_selector?("holderGroups", :visible => true)
+		then 	
+			#Procuro o label, acho o pai e depois encontro o botão
+			find(".wht-label", :text => "PROJECTS").find(:xpath, '..').find("button[class^='multiselect']").click
+			check(project)
+		else
+			find(".wht-label", :text => "GROUPS").find(:xpath, '..').find("button[class^='multiselect']").click
+			choose("None")
+			#Procuro o label, acho o pai e depois encontro o botão
+			find(".wht-label", :text => "PROJECTS").find(:xpath, '..').find("button[class^='multiselect']").click
+			check(project)
+		end		
+	end	
+
+	def selecionar_customer_e_flow(customer, type)
+		find("div#ctl00_customerMenuContainer").find("button[class^='multiselect']").click
+		choose(customer)
+		sleep(2)
+		#Procuro o label, acho o pai e depois encontro o botão
+		find(".wht-label", :text => "FLOW").find(:xpath, '..').find("button[class^='multiselect']").click
+		case type
+			when "Scrum"
+				choose("Teste 1")
+			when "N1"
+				choose("Teste N1")
+			when "N2"
+				choose("Teste N2")
+			when "N3 Corrective"
+				choose("Teste N3 Corrective")
+			when "N3 Evolutionary"
+				choose("Teste N3 Evolutionary")
+			when "Kanban"
+				choose("Teste Kanban")
+			else choose("Automação")
+		end
+	end	
+
+	def selecionar_relatorio(report)
+		find_by_id("ctl00_cphContent_selReport_chosen").click
+		find("div#ctl00_cphContent_selReport_chosen > div > ul > li", :text => report).click
+	end
+
+	def verificar_redirect_performance_review
+		url = URI.parse(current_url)
+		expect("#{url.path}?#{url.query}").to eq "/PerformanceReview.aspx?projectId=613&customerId=1"
+		Capybara::Screenshot.screenshot_and_save_page
+	end
+
+	def publicar_smart_canvas
+		click_button("btnOk")
+		find("div#chart-options > a:nth-child(2)").click
+		find("div#publishSmartCanvas").click
+		$description = "Automação de teste " + Time.now.strftime("%d/%m/%Y %H:%M")
+		fill_in("txtSmartCanvasCardDescription", :with => $description)
+		click_button("Publish")
+		page.has_no_selector?("div#request-loading", :visible => true)
+		has_text?("Card published!")
+		Capybara::Screenshot.screenshot_and_save_page
+	end
+
+	def alterar_grafico_para_coluna
+		find("div#chart-options > a:nth-child(1)").click
+		find("div#chartEditor").click
+		find("div#google-visualization-charteditor-panel-navigate-div div:nth-child(2)").click
+		find("div#google-visualization-charteditor-chart-type-categories > div:nth-child(3)  > span:nth-child(2)").click
+		find("div#google-visualization-charteditor-thumbnail-columnchart > div > div").click
+		sleep(0.5)
+		click_button("OK")
+	end
+
+	def pegar_valores_eixo_x
+		@graph_sprint = all("svg > g:nth-child(4) > g:nth-child(4) > g").collect(&:text)
+	end
+
+	def verifica_tipo_relatorio(report)
+		case report
+			when "Opened", "Resolved","Worklog Sum", "Opened Bugs", "Average Effort by Resolution Date", "Average Effort by Closed Date", "Worklog by Issue Types", "Acceptance to Production Time", "Effort Monitor (resolved tickets)", "Rework by Closed Date", "Average Days to Resolution", "Worklog", "Performance Worklog"
+				@report = "Coluna"
+			when "Average Time", "RST and Goal", "RPT and Goal", "DT and Goal", "FTR and Goal", "SLA Summary (Scorecard)", "Effort and Goal", "Productivity Burn", "Productivity Build", "Productivity All Work", "Quality (DEV Bugs/ CP)", "Quality (UAT Bugs/ CP)", "Quality (PROD Bugs/ CP)", "Rework", "Backlog Age", "Allowance", "Allowance by Resolution Date", "Complexity Points Delivered", "Productivity BURN by Backlog Item", "Sent Service Evaluations", "Service Evaluation Summary (%)"
+				@report = "Linha"
+			when "RST and Goal Reached", "Quality with DEV (Bugs/FTE)", "Quality (Bugs/FTE)", "RST and Goal Missed", "RPT by Severity", "RST by Severity", "FTR by Severity", "RPT and Goal Missed by Severity", "RST and Goal Missed by Severity", "Opened x Resolved", "Opened x Resolved x Closed"
+				@report = "Coluna com linha de meta"
+			when "Current Backlog"
+				@report = "Pizza"
+		end
+	end
+
+	def verifica_grafico_KPI_performance_review(report)
+		case report
+			when "Productivity Burn", "Productivity Build", "Productivity All Work", "Quality (DEV Bugs/ CP)", "Quality (UAT Bugs/ CP)", "Quality (PROD Bugs/ CP)", "Rework"
+				@metrics = true
+		end
+	end
+end
+
+World(Support)
