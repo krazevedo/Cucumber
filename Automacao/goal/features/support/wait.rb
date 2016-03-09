@@ -11,10 +11,10 @@ module Wait
 		   	if not_found == false then
 		  		drill = page.has_css?("div#tableview tbody tr")	
 		  	end
-		   	raise "Graph doesn't visible." if counter >= 10	    
+		   	raise "Graph doesn't visible." if counter >= 30	    
 		  end		  	
 	  end  
-	  page.has_no_selector?("div#request-loading", :visible => true)
+	  page.has_no_css?("div#request-loading", :visible => true)
 	end
 
 	def wait_for_cards

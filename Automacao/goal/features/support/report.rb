@@ -29,7 +29,14 @@ module Report
 	def selecionar_report(report)
 		sleep(1)
 		find_by_id("ctl00_cphContent_selReport_chosen").click
+		sleep(2)
 		find("div#ctl00_cphContent_selReport_chosen > div > ul > li", :text => report, :match => :prefer_exact).click		         
+	end
+
+	def selecionar_card(report)
+		has_selector?("div#cardsContainer > div > ul > li:nth-child(2)")
+		first("div#cardsContainer > div > ul > li:nth-child(2)", :text => report).click
+		wait_for_graph
 	end
 
 	def selecionar_groupby(group)

@@ -1,8 +1,8 @@
 module Support
 
 	def realizar_login
-		fill_in("txt_login", :with => "")
-  		fill_in("txt_pass", :with => "")
+		fill_in("txt_login", :with => ENV['user'])
+  		fill_in("txt_pass", :with => ENV['passwd'])
   		click_button("bt_login")
 	end
 
@@ -11,17 +11,25 @@ module Support
 		choose(customer)
 		sleep(10)
 		if has_selector?("holderGroups", :visible => true)
-		then 	
+		then 
+			find(".wht-label", :text => "GROUPS").find(:xpath, '..').find("button[class^='multiselect']").click
+			choose("None")	
 			#Procuro o label, acho o pai e depois encontro o botão
 			find(".wht-label", :text => "PROJECTS").find(:xpath, '..').find("button[class^='multiselect']").click
 			check(project)
-		else
-			find(".wht-label", :text => "GROUPS").find(:xpath, '..').find("button[class^='multiselect']").click
-			choose("None")
+		else			
 			#Procuro o label, acho o pai e depois encontro o botão
 			find(".wht-label", :text => "PROJECTS").find(:xpath, '..').find("button[class^='multiselect']").click
 			check(project)
 		end		
+	end	
+
+	def selecionar_customer_e_project_radio(customer, project)
+		find("div#ctl00_customerMenuContainer").find("button[class^='multiselect']").click
+		choose(customer)
+		#Procuro o label, acho o pai e depois encontro o botão
+		find(".wht-label", :text => "PROJECTS").find(:xpath, '..').find("button[class^='multiselect']").click
+		choose(project)			
 	end	
 
 	def selecionar_customer_e_flow(customer, type)
@@ -43,7 +51,7 @@ module Support
 				choose("Teste N3 Evolutionary")
 			when "Kanban"
 				choose("Teste Kanban")
-			else choose("Automação")
+			else choose(type)
 		end
 	end	
 
@@ -59,7 +67,9 @@ module Support
 	end
 
 	def publicar_smart_canvas
-		click_button("btnOk")
+		if has_selector?("button#btnOk")
+			click_button("btnOk")
+		end
 		find("div#chart-options > a:nth-child(2)").click
 		find("div#publishSmartCanvas").click
 		$description = "Automação de teste " + Time.now.strftime("%d/%m/%Y %H:%M")

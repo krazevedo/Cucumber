@@ -1,27 +1,33 @@
 module NavigationHelpers
   def path_to(page_name)
-
+    
     case page_name
-    when /goal/
-      $BASE_URL
-    when /project/
-      $BASE_URL + '/Project.aspx'
-    when /card reports/
-      $BASE_URL + '/GoalReports.aspx?Mode=Cards'
-    when /all reports/
-      $BASE_URL + '/GoalReports.aspx?Mode=All'
-    when /pml admin/
-      $BASE_URL + '/PMLAdmin.aspx'
-    when /pml/
-      $BASE_URL + '/PML_Evaluation.aspx' 
-    when /orm/
-      $BASE_URL + 'OperationalRiskManagement.aspx'   
-    when /smart canvas/
-      'http://smartcanvas.com/'  
-    when /pending/
-      'http://smartcanvas.com/a/cards/pending'
-    when /the home\s?page/
-      '/'
+      when /goal/
+        $BASE_URL
+      when /project/
+        $BASE_URL + '/Project.aspx'
+      when /card reports/
+        $BASE_URL + '/GoalReports.aspx?Mode=Cards'
+      when /all reports/
+        $BASE_URL + '/GoalReports.aspx?Mode=All'
+      when /pml admin/
+        $BASE_URL + '/PMLAdmin.aspx'
+      when /pml/
+        $BASE_URL + '/PML_Evaluation.aspx' 
+      when /performance review/        
+        $BASE_URL + '/PerformanceReview.aspx' 
+      when /orm/
+        $BASE_URL + '/OperationalRiskManagement.aspx'  
+      when /raw/
+        $BASE_URL + '/Raw_Report.aspx'  
+      when /flow/
+        $BASE_URL + '/FlowRegister.aspx'         
+      when /smart canvas/
+        'http://demo.tst.smartcanvas.io/'  
+      when /pending/
+        'http://demo.tst.smartcanvas.io/a/cards/pending'
+      when /the home\s?page/
+        '/'
     else
       begin
         page_name =~ /the (.*) page/

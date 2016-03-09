@@ -16,12 +16,22 @@ module PML
 		end
   	end
 
-  	def responder_pml_new_evaluation(language)
+  	def responder_pml_new_evaluation(type, language)
 		find("a", :text => "NEW EVALUATION").click 
 		find_by_id("LanguageId_chosen").click
 		find("div#LanguageId_chosen div ul li", :text => language).click
+		find_by_id("AssociatedProjectTypes_chosen").click
+		find("div#AssociatedProjectTypes_chosen > div > ul > li", :text => type).click
 		fill_in("Cycle", :with => "Nov/2015")
+		fill_in("BusinessManager", :with => "kaior")
+		fill_in("SeniorManager", :with => "kaior")
+		fill_in("ProjectManager", :with => "kaior")
+		fill_in("ScrumMaster", :with => "kaior")
+		fill_in("SoftwareArchitect", :with => "kaior")
+		fill_in("POTeam", :with => "2")
+		fill_in("BurningTeam", :with => "4")
 		click_button("NEXT")
+		sleep(0.5)
 		find("a.linkbutton.confirm").click
 		has_no_selector?("div#request-loading", :visible => true)
 		has_selector?("form#editForm table tbody tr")
@@ -48,9 +58,9 @@ module PML
 		  	for i in 0..@total_perguntas-1
 	  			page.execute_script("$('select#Answers_#{i}__AnswerId')[0].scrollIntoView(true);")
 	  			find_by_id("Answers_#{i}__AnswerId").click  
-	  			if i >= @perguntas-1 and level != "4"
+	  			if i >= @perguntas-3 and level != "4"
 					select("Não", :from => "Answers_#{i}__AnswerId")
-				elsif i == @perguntas-1 and level == "4" 
+				elsif i >= @perguntas-3 and level == "4" 
 					select("Sim", :from => "Answers_#{i}__AnswerId")
 					@perguntas +=1
 				else
@@ -64,15 +74,15 @@ module PML
   	def validar_porcentagem_nivel
   		within_frame("PML_EValuationFrame") do
   			case @perguntas
-  			when 5
-  				porcentagem = "0.80 - Not Compliant"
-  			when 29
-  				porcentagem = "1.96 - Foundation"
-  			when 39
-  				porcentagem = "2.90 - Accuracy"
+  			when 8
+  				porcentagem = "0.63 - Not Compliant"
+  			when 34
+  				porcentagem = "2.00 - Accuracy"
   			when 43
-  				porcentagem = "3.75 - Improvement"
-  			when 44
+  				porcentagem = "2.67 - Accuracy"
+  			when 47
+  				porcentagem = "3.40 - Improvement"
+  			when 48
   				porcentagem = "4.00 - Transformation"
   			end
   			expect(find("div:nth-child(1) > div > div.cardPanel > div.current-pml > span").text).to eq porcentagem
@@ -82,15 +92,15 @@ module PML
   	def validar_cor_nivel
   		within_frame("PML_EValuationFrame") do
   			case @perguntas
-  			when 5
+  			when 8
   				cor = "rgba(255, 0, 0, 1)" #vermelho
-  			when 29
-  				cor = "rgba(255, 255, 0, 1)" #amarelo
-  			when 39
+  			when 34
   				cor = "rgba(255, 165, 0, 1)" #laranja
   			when 43
+  				cor = "rgba(255, 165, 0, 1)" #laranja
+  			when 47
   				cor = "rgba(0, 128, 0, 1)" #verde
-  			when 44
+  			when 48
   				cor = "rgba(0, 0, 255, 1)" #azul
   			end
   			expect(find("div:nth-child(1) > div > div.cardPanel > div.current-pml > span").native.style('background-color')).to eq cor
@@ -107,7 +117,7 @@ module PML
   	def salvar_evaluation
 		click_button("Save")
 		page.has_no_selector?("div#request-loading", :visible => true)
-		sleep(0.5)
+		sleep(2)
 		find("a.linkbutton.confirm").click			
  	end
 
@@ -139,7 +149,7 @@ module PML
 		end 
   	end
 
-  	def comparar_perguntas_pt()
+   	def comparar_perguntas_pt()
   		esta_contido = nil
   		i = 0
   		while i < $total_evaluation
@@ -187,8 +197,20 @@ module PML
 				end
 			end
 		else  #Se não tiver nenhum card não submetido entro na nova avaliação
-			 responder_pml_new_evaluation(language)
+			 responder_pml_new_evaluation(type, language)
 		end	
+	end
+
+	def selecionar_versão_ativa
+		grid_versions = all("table > tbody > tr")
+		for i in 0..grid_versions.count
+			new_version = grid_versions[i].all("td")
+			if new_version[1].text != "" then
+				$version = new_version[0].text
+				new_version[3].first("a").click
+				break
+			end
+		end		
 	end
   	
 end
