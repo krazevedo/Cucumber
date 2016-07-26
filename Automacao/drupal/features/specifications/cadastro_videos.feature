@@ -5,8 +5,8 @@ Funcionalidade: Cadastro de Vídeos
 Cenario: Validar cadastro de vídeos genérico
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "videos"
 	E informar no campo "edit-title" com "Automação Teste Generic"
@@ -21,8 +21,8 @@ Cenario: Validar cadastro de vídeos genérico
 Cenario: Validar cadastro de vídeos gold
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "videos"
 	E informar no campo "edit-title" com "Automação Teste Gold"
@@ -38,8 +38,8 @@ Cenario: Validar cadastro de vídeos gold
 Cenario: Validar cadastro de vídeos platinum
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "videos"
 	E informar no campo "edit-title" com "Automação Teste Platinum"
@@ -55,8 +55,8 @@ Cenario: Validar cadastro de vídeos platinum
 Cenario: Validar cadastro de vídeos silver
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "videos"
 	E informar no campo "edit-title" com "Automação Teste Silver"
@@ -71,8 +71,8 @@ Cenario: Validar cadastro de vídeos silver
 Cenario: Validar cadastro de vídeos destaque
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "videos"
 	E informar no campo "edit-title" com "Automação Teste Destaque"

@@ -3,13 +3,15 @@ module ORM
 	def selecionar_última_versao
 		grid_versions = all("table > tbody > tr")
 		new_version = grid_versions[0].all("td")
-		new_version[3].first("a").click	
+		new_version[3].find_button("Details").click
 	end
 
 	def editar_última_versao
 		if has_selector?('a', :text => 'EDIT') == true
 			then find('a', :text => 'EDIT').click	
 		else click_button("createORM")
+			 find('a', :text => 'YES').click
+			 wait_no_loading
 		end
 	end
 
@@ -46,7 +48,7 @@ module ORM
 										then $perguntas_performance_level_1_sim += 1
 										else $perguntas_performance_level_1_nao += 1
 										end
-									else $perguntas_performance_level_1_nao += 1
+									else $perguntas_performance_level_1_sim += 1
 									end
 								end
 							when "Escopo", "Governança de Suporte", "Riscos", "Custo", "Comunicação", "Diferenciação"
@@ -82,7 +84,7 @@ module ORM
 										then $perguntas_performance_level_2_sim += 1
 										else $perguntas_performance_level_2_nao += 1
 										end
-									else $perguntas_performance_level_2_nao += 1
+									else $perguntas_performance_level_2_sim += 1
 									end
 								end
 							when "Escopo", "Governança de Suporte", "Riscos", "Custo", "Comunicação", "Diferenciação"
@@ -118,7 +120,7 @@ module ORM
 										then $perguntas_performance_level_3_sim += 1
 										else $perguntas_performance_level_3_nao += 1
 										end
-									else $perguntas_performance_level_3_nao += 1
+									else $perguntas_performance_level_3_sim += 1
 									end
 								end
 							when "Escopo", "Governança de Suporte", "Riscos", "Custo", "Comunicação", "Diferenciação"
@@ -171,7 +173,7 @@ module ORM
 									then $perguntas_arquitetura_level_4_sim += 1
 									else $perguntas_arquitetura_level_4_nao += 1
 									end		
-								else $perguntas_arquitetura_level_4_nao += 1
+								else $perguntas_arquitetura_level_4_sim += 1
 								end						
 						end									
 				end	
@@ -228,6 +230,7 @@ module ORM
 			$cor_gerenciamento = cor
 		end		
 	end
+
 
 	def definir_cores_para_performance
 		if $porcentagem_performance == 1.0

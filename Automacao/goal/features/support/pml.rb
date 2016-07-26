@@ -11,7 +11,7 @@ module PML
 			fill_in("Cycle", :with => "Nov/2015")
 			click_button("NEXT") 
 			find("a.linkbutton.confirm").click
-			has_no_selector?("div#request-loading", :visible => true)
+			has_no_selector?("div#loading", :visible => true)
 			has_selector?("form#editForm table tbody tr")
 		end
   	end
@@ -20,8 +20,6 @@ module PML
 		find("a", :text => "NEW EVALUATION").click 
 		find_by_id("LanguageId_chosen").click
 		find("div#LanguageId_chosen div ul li", :text => language).click
-		find_by_id("AssociatedProjectTypes_chosen").click
-		find("div#AssociatedProjectTypes_chosen > div > ul > li", :text => type).click
 		fill_in("Cycle", :with => "Nov/2015")
 		fill_in("BusinessManager", :with => "kaior")
 		fill_in("SeniorManager", :with => "kaior")
@@ -33,7 +31,7 @@ module PML
 		click_button("NEXT")
 		sleep(0.5)
 		find("a.linkbutton.confirm").click
-		has_no_selector?("div#request-loading", :visible => true)
+		has_no_selector?("div#loading", :visible => true)
 		has_selector?("form#editForm table tbody tr")
   	end
 
@@ -116,7 +114,7 @@ module PML
 
   	def salvar_evaluation
 		click_button("Save")
-		page.has_no_selector?("div#request-loading", :visible => true)
+		page.has_no_selector?("div#loading", :visible => true)
 		sleep(2)
 		find("a.linkbutton.confirm").click			
  	end

@@ -5,8 +5,8 @@ Funcionalidade: Cadastro de Artigos
 Cenario: Validar cadastro de artigos genérico
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "artigos"
 	E informar no campo "edit-title" com "Automação Teste Generic"
@@ -20,8 +20,8 @@ Cenario: Validar cadastro de artigos genérico
 Cenario: Validar cadastro de artigos gold
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "artigos"
 	E informar no campo "edit-title" com "Automação Teste Gold"
@@ -35,8 +35,8 @@ Cenario: Validar cadastro de artigos gold
 Cenario: Validar cadastro de artigos platinum
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "artigos"
 	E informar no campo "edit-title" com "Automação Teste Platinum"
@@ -50,8 +50,8 @@ Cenario: Validar cadastro de artigos platinum
 Cenario: Validar cadastro de artigos silver
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "artigos"
 	E informar no campo "edit-title" com "Automação Teste Silver"
@@ -65,8 +65,8 @@ Cenario: Validar cadastro de artigos silver
 Cenario: Validar cadastro de artigos com imagem
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "artigos"
 	E informar no campo "edit-title" com "Automação Teste Imagem"
@@ -81,8 +81,8 @@ Cenario: Validar cadastro de artigos com imagem
 Cenario: Validar cadastro de artigos com video
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "artigos"
 	E informar no campo "edit-title" com "Automação Teste Imagem"

@@ -5,8 +5,8 @@ Funcionalidade: Cadastro de Comunicados
 Cenario: Validar cadastro de comunicados genérico
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "comunicados"
 	E informar no campo "edit-title" com "Automação Teste Generic"
@@ -20,8 +20,8 @@ Cenario: Validar cadastro de comunicados genérico
 Cenario: Validar cadastro de comunicados silver sem link
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "comunicados"
 	E informar no campo "edit-title" com "Automação Teste Silver"
@@ -34,8 +34,8 @@ Cenario: Validar cadastro de comunicados silver sem link
 Cenario: Validar cadastro de comunicados gold
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "comunicados"
 	E informar no campo "edit-title" com "Automação Teste Gold"
@@ -49,8 +49,8 @@ Cenario: Validar cadastro de comunicados gold
 Cenario: Validar cadastro de comunicados platinum sem link
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "comunicados"
 	E informar no campo "edit-title" com "Automação Teste Platinum"

@@ -1,7 +1,6 @@
 module NavigationHelpers
   def path_to(page_name)
-    
-    case page_name
+    case page_name      
       when /goal/
         $BASE_URL
       when /project/
@@ -20,8 +19,10 @@ module NavigationHelpers
         $BASE_URL + '/OperationalRiskManagement.aspx'  
       when /raw/
         $BASE_URL + '/Raw_Report.aspx'  
-      when /flow/
-        $BASE_URL + '/FlowRegister.aspx'         
+      when /flow criteria/
+        $BASE_URL + '/PMLReports.aspx?id=1'   
+      when /flow/        
+        $BASE_URL + '/FlowRegister.aspx'                
       when /smart canvas/
         'http://demo.tst.smartcanvas.io/'  
       when /pending/

@@ -21,7 +21,9 @@ module NavigationHelpers
     when /posts/
       $BASE_URL + '/node/add/community-posts'
     when /conteúdo digital/
-      $BASE_URL + '/node/add/free-digital-content'          
+      $BASE_URL + '/node/add/free-digital-content'  
+    when /imagens/
+      $BASE_URL + '/file/add' 
     when /the home\s?page/
       '/'
     else

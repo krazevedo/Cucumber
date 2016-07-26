@@ -78,7 +78,6 @@ Quando(/^acessar os relatórios do card$/) do
 	cards = all("div#cardsContainer > div").count
 	for i in 1..cards
 		report = find("div#cardsContainer > div:nth-child(#{i}) > h1").text
-		binding.pry
 		page.execute_script("$('div#cardsContainer > div:nth-child(#{i}) > ul > li:nth-child(2)')[0].scrollIntoView(true);")
 		find("div#cardsContainer > div:nth-child(#{i}) > ul > li:nth-child(2)").click  
 		wait_for_graph
@@ -97,7 +96,7 @@ Quando(/^acessar todos os relatórios$/) do
 			then find_by_id("ctl00_cphContent_selDashboard_chosen").click
 		end
 		find("div#ctl00_cphContent_selDashboard_chosen div ul li:nth-child(#{i})").click
-		sleep(2)
+		sleep(3)
 		find_by_id("ctl00_cphContent_selReport_chosen").click
 		reports = all("div#ctl00_cphContent_selReport_chosen > div > ul > li").count
 		for j in 1..reports

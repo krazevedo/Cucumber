@@ -7,24 +7,22 @@ Quando(/^acessar última versão$/) do
 	end
 end
 
-Então(/^deverá carregar corretamente as informações$/) do |table|
-	within_frame("OperationalRiskManagementFrame") do
-			selecionar_opcao_combobox("ORMFilter_SelectedSSO", "BR Office")
-			selecionar_opcao_combobox("ORMFilter_SelectedTower", "UMKT_Agro_Chemical")
-		  	clicar_no_apply
-		  	validar_valores_details(table)		
-	end
+Então(/^deverá carregar corretamente as informações$/) do |table|	
+    popup = page.driver.browser.window_handles.last
+    page.driver.browser.switch_to.window(popup)
+		selecionar_opcao_combobox("ORMFilter_SelectedSSO", "LATAM")
+		selecionar_opcao_combobox("ORMFilter_SelectedTower", "UMKT_Payments")
+		clicar_no_apply
+		validar_valores_details(table)		
 end
 
 Então(/^deverá comparar corretamente as informações da "([^"]*)"$/) do |tower|
-	within_frame("OperationalRiskManagementFrame") do
-		has_selector?("div#ormTable")
-		collums = find("div#ormTable > div > table > tbody > tr > td", :text => tower).find(:xpath, '..').all("td")
-  		expect(collums[11].text).to eq $cor_execucao
-		  expect(collums[12].text).to eq $cor_arquitetura
-		  expect(collums[13].text).to eq $cor_gerenciamento
-		  expect(collums[14].text).to eq $cor_performance
-	end
+	   has_selector?("table#ormTab")
+		 collums = find("table#ormTab > tbody > tr > td", :text => tower).find(:xpath, '..').all("td")
+     expect(collums[10].text).to eq $cor_gerenciamento
+     expect(collums[11].text).to eq $cor_execucao
+		 expect(collums[12].text).to eq $cor_arquitetura		 
+		 expect(collums[13].text).to eq $cor_performance	
 end
 
 Então(/^deverá printar resultados$/) do
@@ -32,11 +30,11 @@ Então(/^deverá printar resultados$/) do
 end
 
 Então(/^selecionar SSO "([^"]*)" e Tower "([^"]*)"$/) do |sso, tower|
-	within_frame("OperationalRiskManagementFrame") do
-		selecionar_opcao_combobox("ORMFilter_SelectedSSO", sso)
-		selecionar_opcao_combobox("ORMFilter_SelectedTower", tower)
-		clicar_no_apply
-	end
+	   popup = page.driver.browser.window_handles.last
+     page.driver.browser.switch_to.window(popup)
+		 selecionar_opcao_combobox("ORMFilter_SelectedSSO", sso)
+		 selecionar_opcao_combobox("ORMFilter_SelectedTower", tower)
+     clicar_no_apply	
 end
 
 Quando(/^editar última versão$/) do 

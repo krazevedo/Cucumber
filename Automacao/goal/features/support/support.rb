@@ -75,7 +75,7 @@ module Support
 		$description = "Automação de teste " + Time.now.strftime("%d/%m/%Y %H:%M")
 		fill_in("txtSmartCanvasCardDescription", :with => $description)
 		click_button("Publish")
-		page.has_no_selector?("div#request-loading", :visible => true)
+		page.has_no_selector?("div#loading", :visible => true)
 		has_text?("Card published!")
 		Capybara::Screenshot.screenshot_and_save_page
 	end

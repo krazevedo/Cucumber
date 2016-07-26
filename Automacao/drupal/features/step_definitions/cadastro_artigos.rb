@@ -63,6 +63,7 @@ Quando(/^informar imagem no conteúdo "([^"]*)"$/) do |value|
 	  click_button("Upload")
 	  wait_for_button
 	  click_button("Próximo")
+	  click_button("Próximo")
 	  click_button("Salvar")	  	  
 	end
 
@@ -90,5 +91,4 @@ Quando(/^informar video no conteúdo "([^"]*)"$/) do |value|
 	within_frame ('mediaStyleSelector') do
 	  find("a.button.fake-ok").click
 	end 
-end
-
+end	

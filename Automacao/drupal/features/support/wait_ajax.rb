@@ -11,7 +11,7 @@ module WaitAjax
 
 	def wait_for_button
 	  counter = 0
-	  teste = has_button?("Remover")
+	  teste = page.has_button?("Remover")
 	  while teste == false
 	  	counter += 1
 	   	teste = has_button?("Remover")

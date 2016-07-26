@@ -2,11 +2,11 @@
 
 Funcionalidade: Relatório  
 
-Cenario: Smoketest dos relatórios
+# Cenario: Smoketest dos relatórios
 
-	Dado que eu acesse o goal
-	Quando eu acessar "card reports"
-	E acessar os relatórios do card
+# 	Dado que eu acesse o goal
+# 	Quando eu acessar "card reports"
+# 	E acessar os relatórios do card
 
 
 Cenario: Todos dos relatórios

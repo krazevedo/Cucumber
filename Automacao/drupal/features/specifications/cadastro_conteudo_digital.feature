@@ -5,8 +5,8 @@ Funcionalidade: Cadastro de Conteúdo Digital
 Cenario: Validar cadastro de conteúdo genérico
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "conteúdo digital"
 	E informar no campo "edit-title" com "Automação Teste Generic"

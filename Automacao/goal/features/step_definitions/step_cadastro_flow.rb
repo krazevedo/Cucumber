@@ -6,7 +6,7 @@ Quando(/^cadastrar um flow$/) do
 	choose("CI&T")
 	within_frame("flowFrame") do
 		click_link("New Flow")
-		@name = Faker::Lorem.characters(5)
+		@name = Faker::StarWars.character
 		fill_in("Name", :with => "Automação Teste - " + @name)
 		select("Scrum", :from => "TypeId")
 		fill_in("StartDate", :with => Time.now.strftime("%m/%d/%Y"))

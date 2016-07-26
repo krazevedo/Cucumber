@@ -9,7 +9,7 @@ Cenario: Validar valores métricas
 	E escolher radio do cliente "CI&T" e projeto "GOAL"
 	Então deverá comparar valores das métricas
 	| Cycle | Productivity Burn	| Productivity Build | Productivity All Work | Quality Dev | Quality UAT | Quality PROD	| Rework |
-	| Sprint 19 - SmartCanvas | 26.525 hours/CP | 36.6 hours/CP | 36.6 hours/CP | 3.5 bugs/CP | 0.1 bugs/CP | 0.2 bugs/CP | 36.381 %|
+	| Sprint 19 - SmartCanvas | 5.005 hours/CP | 6.906 hours/CP | 6.906 hours/CP | 0.66 bugs/CP | 0.1 bugs/CP | 0.003 bugs/CP | 36.381 %|
 
 Cenario: Validar Endorse métricas
 

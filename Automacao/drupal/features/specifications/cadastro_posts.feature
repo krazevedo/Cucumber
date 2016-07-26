@@ -5,8 +5,8 @@ Funcionalidade: Cadastro de Posts
 Cenario: Validar cadastro de post genérico
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "posts"
 	E informar no campo "edit-title" com "Automação Teste Generic"
@@ -21,8 +21,8 @@ Cenario: Validar cadastro de post genérico
 Cenario: Validar cadastro de post silver
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "posts"
 	E informar no campo "edit-title" com "Automação Teste Silver"
@@ -36,8 +36,8 @@ Cenario: Validar cadastro de post silver
 Cenario: Validar cadastro de post gold
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "posts"
 	E informar no campo "edit-title" com "Automação Teste Gold"
@@ -52,8 +52,8 @@ Cenario: Validar cadastro de post gold
 Cenario: Validar cadastro de post platinum
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "posts"
 	E informar no campo "edit-title" com "Automação Teste Platinum"
@@ -67,11 +67,11 @@ Cenario: Validar cadastro de post platinum
 Cenario: Validar cadastro de post com imagem
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "posts"
-	E informar no campo "edit-title" com "Automação Teste Generic"
+	E informar no campo "edit-title" com "Automação Teste Imagem"
 	E selecionar o idioma "Português, Brasil"
 	E selecionar o segmento "Generic"
 	E selecionar a categoria "Default" no combobox
@@ -83,11 +83,11 @@ Cenario: Validar cadastro de post com imagem
 Cenario: Validar cadastro de post com video
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "posts"
-	E informar no campo "edit-title" com "Automação Teste Generic"
+	E informar no campo "edit-title" com "Automação Teste Vídeo"
 	E selecionar o idioma "Português, Brasil"
 	E selecionar o segmento "Generic"
 	E selecionar a categoria "Default" no combobox

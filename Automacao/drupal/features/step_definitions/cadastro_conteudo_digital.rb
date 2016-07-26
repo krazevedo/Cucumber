@@ -10,9 +10,7 @@ Quando(/^informar na posição "([^"]*)" a imagem de fundo "([^"]*)"$/) do |pos,
   	within_frame("mediaBrowser") do
 	  attach_file("edit-upload-upload", "/home/likewise-open/CIT/kaior/img/" + "#{value}")
 	  click_button("Upload")
-	  wait_for_ajax
 	  click_button("Próximo")
-	  wait_for_ajax
 	  click_button("Salvar")	  
 	end
 end

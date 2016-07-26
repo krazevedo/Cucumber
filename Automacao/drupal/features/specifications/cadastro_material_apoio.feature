@@ -5,8 +5,8 @@ Funcionalidade: Cadastro de Material de Apoio
 Cenario: Validar cadastro de material genérico
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "material de apoio"
 	E informar no campo "edit-title" com "Automação Teste Generic"
@@ -22,8 +22,8 @@ Cenario: Validar cadastro de material genérico
 Cenario: Validar cadastro de material gold
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "material de apoio"
 	E informar no campo "edit-title" com "Automação Teste Gold"
@@ -39,8 +39,8 @@ Cenario: Validar cadastro de material gold
 Cenario: Validar cadastro de material platinum
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "material de apoio"
 	E informar no campo "edit-title" com "Automação Teste Platinum"
@@ -57,8 +57,8 @@ Cenario: Validar cadastro de material platinum
 Cenario: Validar cadastro de material silver
 
 	Dado que eu acesse o painel drupal
-	Quando eu informar no campo "edit-name" com "admin"
-	E eu informar no campo "edit-pass" com ";"
+	Quando eu informar no campo "edit-name" com "naturamasteruser"
+	E eu informar no campo "edit-pass" com "S1t3Adm1n99;"
 	E clicar no botão "edit-submit"
 	Quando eu acessar "material de apoio"
 	E informar no campo "edit-title" com "Automação Teste Silver"

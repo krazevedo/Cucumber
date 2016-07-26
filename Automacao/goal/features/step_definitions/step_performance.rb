@@ -10,7 +10,10 @@ Então(/^deverá comparar valores das métricas$/) do |table|
 		data =  retorna_tabela_hash(table)
 		count = data['Cycle'].size.to_i
   		count.times do | vnum |
-		metrics, grid = Array.new(), Array.new()
+		metrics, grid = Array.new(), Array.new()		
+		while has_text?(data['Cycle'][vnum].to_s) != true
+			find('a', :text => 'NEXT PAGE').click			
+		end
 		grid = find("div.metrics-card-header", :text => data['Cycle'][vnum].to_s).find(:xpath, '..').all("table > tbody > tr")
 		metrics = grid.collect {|x| x.find("td:nth-child(2) > span").text}			  	
   			expect(metrics[0]).to eq data['Productivity Burn'][vnum].to_s
@@ -27,17 +30,23 @@ end
 Então(/^as métricas deverão estar endorse$/) do
 	within_frame("PerformanceReviewFrame") do
 	 	metrics, grid = Array.new(), Array.new()
+	 	while has_text?("Release Sprint - PML") != true
+			find('a', :text => 'NEXT PAGE').click			
+		end
 		grid = find("div.metrics-card-header", :text => "Release Sprint - PML").find(:xpath, '..').all("table > tbody > tr")
-		metrics = grid.collect {|x| x.find("td:nth-child(4) > i").text}	
-		metrics.each {|x| expect(x).to eq "done"}
+		metrics = grid.collect {|x| x.find("td:nth-child(5) > span")[:class].include?"endorsed"}	
+		metrics.each {|x| expect(x).to eq true}
 	end
 end
 
 Então(/^as métricas deverão estar disagree$/) do
 	within_frame("PerformanceReviewFrame") do
 	 	metrics, grid = Array.new(), Array.new()
+	 	while has_text?("Sprint 17") != true
+			find('a', :text => 'NEXT PAGE').click			
+		end
 		grid = find("div.metrics-card-header", :text => "Sprint 17").find(:xpath, '..').all("table > tbody > tr")
-		metrics = grid.collect {|x| x.find("td:nth-child(4) > i").text}	
-		metrics.each {|x| expect(x).to eq "error"}
+		metrics = grid.collect {|x| x.find("td:nth-child(5) > span")[:class].include?"disagree"}	
+		metrics.each {|x| expect(x).to eq true}
 	end
 end
