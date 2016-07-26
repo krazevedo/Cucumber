@@ -12,6 +12,3 @@ gem 'faker' , '1.6.3'
 gem 'faker_credit_card'
 gem 'cpf_faker'
 gem 'ruby-oci8'
-gem 'site_prism'
-
-
